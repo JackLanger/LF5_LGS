@@ -19,11 +19,11 @@ public class LgsTest
         var res = LGS.SolveLgs(matrix, resultVector);
         Assert.AreEqual(
             new Vector(new[] {-3.833333333333333, 2.4166666666666665, -1.0833333333333333})
-                .matrixData,
-            res.matrixData);
+                .getData(),
+            res.getData());
         var inverted = LGS.SolveLgs(matrix);
         var uniRes = inverted * matrix;
-        Assert.AreEqual(new UnificationMatrix(matrix.height).matrixData,
-            uniRes.matrixData);
+        Assert.AreEqual(new UnificationMatrix(matrix.height).getData(),
+            uniRes.getData());
     }
 }

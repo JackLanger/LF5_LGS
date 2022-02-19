@@ -9,7 +9,7 @@ public class LGS
     {
         MatrixBase res;
         if (result is not null)
-            res = new Vector(result.matrixData[0]);
+            res = new Vector(result);
         else
             res = new UnificationMatrix(matrix.height);
 
@@ -28,7 +28,7 @@ public class LGS
         for (var i = 0; i < matrix.height; i++)
         {
             temp[i] = new double[matrix.width];
-            for (var j = 0; j < matrix.width; j++) temp[i][j] = matrix.matrixData[i][j];
+            for (var j = 0; j < matrix.width; j++) temp[i][j] = matrix[i][j];
         }
 
         return temp;
@@ -40,10 +40,10 @@ public class LGS
         {
             var alpha = 1 / temp[i][i];
             if (res is not Vector)
-                for (var j = 0; j < res.matrixData.Length; j++)
-                    res.matrixData[i][j] *= alpha;
+                for (var j = 0; j < res.width; j++)
+                    res[i][j] *= alpha;
             else
-                res.matrixData[0][i] *= alpha;
+                res[0][i] *= alpha;
 
             temp[i][i] /= temp[i][i];
         }
@@ -69,14 +69,14 @@ public class LGS
 
                 // there was an solving vector provided, therefore it needs to be updated. 
                 if (result is not null && h == i)
-                    res.matrixData[0][i + 1] += rowAlpha * res.matrixData[0][i];
+                    res[0][i + 1] += rowAlpha * res[0][i];
 
                 for (var j = i; j < temp.Length; j++)
                 {
                     // no solving vector was provided we use the unification vector
                     if (res is UnificationMatrix)
-                        res.matrixData[h + 1][j] +=
-                            rowAlpha * res.matrixData[i][j];
+                        res[h + 1][j] +=
+                            rowAlpha * res[i][j];
 
                     temp[h + 1][j] = rowAlpha * topRow[j] + currentRow[j];
                 }
@@ -96,14 +96,14 @@ public class LGS
 
                 // there was an solving vector provided, therefore it needs to be updated. 
                 if (result is not null && h == i)
-                    res.matrixData[0][i - 1] += rowAlpha * res.matrixData[0][i];
+                    res[0][i - 1] += rowAlpha * res[0][i];
 
                 for (var j = i; j >= 1; j--)
                 {
                     // no solving vector was provided we use the unification vector
                     if (res is UnificationMatrix)
-                        res.matrixData[h - 1][j] +=
-                            rowAlpha * res.matrixData[i][j];
+                        res[h - 1][j] +=
+                            rowAlpha * res[i][j];
 
                     temp[h - 1][j] = rowAlpha * topRow[j] + currentRow[j];
                 }

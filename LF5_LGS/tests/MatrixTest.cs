@@ -32,7 +32,7 @@ public class MatrixTest
 
         var res = first * second;
 
-        Assert.AreEqual(expected.matrixData, (first * second).matrixData);
+        Assert.AreEqual(expected.getData(), (first * second).getData());
     }
 
     [Test]
@@ -62,6 +62,6 @@ public class MatrixTest
 
         var res = first * second;
 
-        Assert.AreEqual(expected.matrixData, (first * second).matrixData);
+        Assert.AreEqual(expected.getData(), (first * second).getData());
     }
 }

@@ -4,7 +4,7 @@ public class UnificationMatrix : Matrix
 {
     public UnificationMatrix(int m) : base(m, m)
     {
-        for (var i = 0; i < matrixData.Length; i++)
-            matrixData[i][i] = 1;
+        for (var i = 0; i < data.Length; i++)
+            data[i][i] = 1;
     }
 }
