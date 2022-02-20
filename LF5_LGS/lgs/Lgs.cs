@@ -3,7 +3,7 @@ using LF5_LGS.models;
 
 namespace LF5_LGS;
 
-public class LGS
+public static class Lgs
 {
     public static MatrixBase SolveLgs(Matrix matrix, Vector? result = null)
     {
@@ -26,6 +26,8 @@ public class LGS
     {
         for (var i = 0; i < temp.height; i++)
         {
+            if (temp[i].IsNullRow)
+                throw new UnsolvableMatrixException();
             var alpha = 1 / temp[i][i];
             temp[i][i] *= alpha;
             if (res is not Vector)

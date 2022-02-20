@@ -14,6 +14,18 @@ public class MatrixRow
         this.data = data;
     }
 
+    public bool IsNullRow
+    {
+        get
+        {
+            for (var i = 0; i < Length; i++)
+                if (data[i] != 0)
+                    return false;
+
+            return true;
+        }
+    }
+
     public double this[int i]
     {
         get => data[i];
