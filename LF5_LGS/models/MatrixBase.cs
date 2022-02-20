@@ -47,7 +47,7 @@ public abstract class MatrixBase
     {
         var temp = new double[Data.Length][];
 
-        for (var i = 0; i < Data.Length; i++) temp[i] = Data[i].getData();
+        for (var i = 0; i < Data.Length; i++) temp[i] = Data[i].GetData();
 
         return temp;
     }

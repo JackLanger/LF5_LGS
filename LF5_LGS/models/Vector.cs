@@ -21,13 +21,13 @@ public class Vector : MatrixBase
     {
     }
 
-    public new double this[int i]
+    private new double this[int i]
     {
         get => Data[0][i];
         set => Data[0][i] = value;
     }
 
-    public int getHeight()
+    public int GetHeight()
     {
         return Data.GetLength(0);
     }

@@ -2,16 +2,16 @@ namespace LF5_LGS.models.data;
 
 public class MatrixRow
 {
-    protected double[] data;
+    private readonly double[] _data;
 
     public MatrixRow(int height)
     {
-        data = new double[height];
+        _data = new double[height];
     }
 
     public MatrixRow(double[] data)
     {
-        this.data = data;
+        _data = data;
     }
 
     public bool IsNullRow
@@ -19,7 +19,7 @@ public class MatrixRow
         get
         {
             for (var i = 0; i < Length; i++)
-                if (data[i] != 0)
+                if (_data[i] != 0)
                     return false;
 
             return true;
@@ -28,11 +28,11 @@ public class MatrixRow
 
     public double this[int i]
     {
-        get => data[i];
-        set => data[i] = value;
+        get => _data[i];
+        set => _data[i] = value;
     }
 
-    public int Length => data.Length;
+    private int Length => _data.Length;
 
 
     public static MatrixRow operator +(MatrixRow first, MatrixRow second)
@@ -58,8 +58,8 @@ public class MatrixRow
         return temp;
     }
 
-    public double[] getData()
+    public double[] GetData()
     {
-        return data;
+        return _data;
     }
 }

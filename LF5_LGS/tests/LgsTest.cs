@@ -7,7 +7,7 @@ namespace LF5_LGS.tests;
 public class LgsTest
 {
     [Test]
-    public void TestLGS()
+    public void TestLgs()
     {
         var resultVector = new Vector(new double[] {5, 6});
         var matrix = new Matrix(new[]
@@ -32,7 +32,7 @@ public class LgsTest
     }
 
     [Test]
-    public void TestInvalidLGS()
+    public void TestInvalidLgs()
     {
         var resultVector = new Vector(new double[] {5, 6});
         var matrix = new Matrix(new[]
