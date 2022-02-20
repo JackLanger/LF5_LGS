@@ -21,7 +21,7 @@ public static class Lgs
         if (result is not null)
             res = Vector.Copy(result);
         else
-            res = new UnificationMatrix(matrix.height);
+            res = new UnificationMatrix(matrix.Height);
 
         var temp = Matrix.Copy(matrix);
 
@@ -34,7 +34,7 @@ public static class Lgs
 
     private static void Normalize(Matrix temp, MatrixBase res)
     {
-        for (var i = 0; i < temp.height; i++)
+        for (var i = 0; i < temp.Height; i++)
         {
             if (temp[i].IsNullRow)
                 throw new UnsolvableMatrixException();
@@ -50,19 +50,19 @@ public static class Lgs
 
     private static void IterateDown(Vector? result, MatrixBase res, Matrix temp)
     {
-        for (var i = 0; i < temp.height - 1; i++)
+        for (var i = 0; i < temp.Height - 1; i++)
         {
             if (temp[i + 1][i] == 0)
             {
-                temp.Pivot(i, i + 1);
-                res.Pivot(i, i + 1);
+                temp.Swap(i, i + 1);
+                res.Swap(i, i + 1);
                 if (temp[i + 1][i] == 0)
                     throw new UnsolvableMatrixException();
             }
 
 
             var topRow = temp[i];
-            for (var h = i; h < temp.height - 1; h++)
+            for (var h = i; h < temp.Height - 1; h++)
             {
                 var currentRow = temp[h + 1];
                 var rowAlpha = -currentRow[i] / topRow[i];
@@ -71,7 +71,7 @@ public static class Lgs
                 if (result is not null && h == i)
                     res[0][i + 1] += rowAlpha * res[0][i];
 
-                for (var j = i; j < temp.height; j++)
+                for (var j = i; j < temp.Height; j++)
                 {
                     // no solving vector was provided we use the unification vector
                     if (res is UnificationMatrix)
@@ -86,7 +86,7 @@ public static class Lgs
 
     private static void IterateUp(Vector? result, MatrixBase res, Matrix temp)
     {
-        for (var i = temp.height - 1; i >= 0; i--)
+        for (var i = temp.Height - 1; i >= 0; i--)
         {
             var topRow = temp[i];
             for (var h = i; h >= 1; h--)

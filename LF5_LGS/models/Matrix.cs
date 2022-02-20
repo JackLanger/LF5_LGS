@@ -10,16 +10,16 @@ public class Matrix : MatrixBase
 {
     public Matrix(double[][] data) : base(data)
     {
-        height = data.Length;
-        width = data.GetLength(0);
+        Height = data.Length;
+        Width = data.GetLength(0);
     }
 
     public Matrix(int m, int n) : base(m, n)
     {
-        data = new MatrixRow[m];
-        for (var i = 0; i < m; i++) data[i] = new MatrixRow(n);
-        width = n;
-        height = m;
+        Data = new MatrixRow[m];
+        for (var i = 0; i < m; i++) Data[i] = new MatrixRow(n);
+        Width = n;
+        Height = m;
     }
 
     /// <summary>
@@ -32,15 +32,15 @@ public class Matrix : MatrixBase
     /// <exception cref="InvalidMatrixOperationException"></exception>
     public static Matrix operator *(Matrix first, MatrixBase second)
     {
-        if (first.width != second.height)
+        if (first.Width != second.Height)
             throw new InvalidMatrixOperationException(
                 "invalid operation, matrices cannot be multiplied!");
 
-        var result = new Matrix(first.height, second.width);
+        var result = new Matrix(first.Height, second.Width);
 
-        for (var i = 0; i < first.height; i++)
-        for (var j = 0; j < first.width; j++)
-        for (var k = 0; k < first.width; k++)
+        for (var i = 0; i < first.Height; i++)
+        for (var j = 0; j < first.Width; j++)
+        for (var k = 0; k < first.Width; k++)
             result[i][j] += first[i][k] * second[k][j];
 
         return result;
@@ -54,10 +54,10 @@ public class Matrix : MatrixBase
     /// <returns> new Matrix that is alhpa *  the old matrix</returns>
     public static Matrix operator *(double alpha, Matrix matrix)
     {
-        Matrix temp = new(matrix.height, matrix.width);
+        Matrix temp = new(matrix.Height, matrix.Width);
 
-        for (var i = 0; i < matrix.height; i++)
-        for (var j = 0; j < matrix.width; j++)
+        for (var i = 0; i < matrix.Height; i++)
+        for (var j = 0; j < matrix.Width; j++)
             temp[i][j] = matrix[i][j] * alpha;
 
         return temp;
@@ -71,11 +71,11 @@ public class Matrix : MatrixBase
     /// <returns> copy of the matrix</returns>
     public static Matrix Copy(MatrixBase matrix)
     {
-        var temp = new double[matrix.height][];
-        for (var i = 0; i < matrix.height; i++)
+        var temp = new double[matrix.Height][];
+        for (var i = 0; i < matrix.Height; i++)
         {
-            temp[i] = new double[matrix.width];
-            for (var j = 0; j < matrix.width; j++) temp[i][j] = matrix[i][j];
+            temp[i] = new double[matrix.Width];
+            for (var j = 0; j < matrix.Width; j++) temp[i][j] = matrix[i][j];
         }
 
         return new Matrix(temp);

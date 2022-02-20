@@ -25,10 +25,10 @@ public class LgsTest
         });
         var inverted = Lgs.SolveLgs(matrix);
 
-        Assert.AreEqual(expected.getData(), actual.getData());
-        Assert.AreEqual(invertedExpected.getData(), inverted.getData());
-        Assert.AreEqual(new UnificationMatrix(2).getData(), (inverted * matrix).getData());
-        Assert.AreEqual(new UnificationMatrix(2).getData(), (matrix * inverted).getData());
+        Assert.AreEqual(expected.GetData(), actual.GetData());
+        Assert.AreEqual(invertedExpected.GetData(), inverted.GetData());
+        Assert.AreEqual(new UnificationMatrix(2).GetData(), (inverted * matrix).GetData());
+        Assert.AreEqual(new UnificationMatrix(2).GetData(), (matrix * inverted).GetData());
     }
 
     [Test]

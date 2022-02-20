@@ -7,27 +7,27 @@ public abstract class MatrixBase
 {
     protected MatrixBase(int h, int w)
     {
-        data = new MatrixRow[h];
-        for (var i = 0; i < h; i++) data[i] = new MatrixRow(w);
+        Data = new MatrixRow[h];
+        for (var i = 0; i < h; i++) Data[i] = new MatrixRow(w);
     }
 
     protected MatrixBase(double[][] data)
     {
-        this.data = new MatrixRow[data.Length];
-        for (var i = 0; i < data.Length; i++) this.data[i] = new MatrixRow(data[i]);
+        Data = new MatrixRow[data.Length];
+        for (var i = 0; i < data.Length; i++) Data[i] = new MatrixRow(data[i]);
     }
 
-    protected MatrixRow[] data { get; init; }
+    protected MatrixRow[] Data { get; init; }
 
     /// <summary>
     ///     The Width of the matrix.
     /// </summary>
-    public int width { get; protected init; }
+    public int Width { get; protected init; }
 
     /// <summary>
     ///     The height of the matrix.
     /// </summary>
-    public int height { get; protected init; }
+    public int Height { get; protected init; }
 
     /// <summary>
     ///     Square bracket accessor for the data. Provides functionality of a array accessor [i].
@@ -35,55 +35,46 @@ public abstract class MatrixBase
     /// <param name="i">the index</param>
     public MatrixRow this[int i]
     {
-        get => data[i];
-        set => data[i] = value;
+        get => Data[i];
+        set => Data[i] = value;
     }
 
     /// <summary>
     ///     Returns teh Arrays data.
     /// </summary>
     /// <returns>array data</returns>
-    public double[][] getData()
+    public double[][] GetData()
     {
-        var temp = new double[data.Length][];
+        var temp = new double[Data.Length][];
 
-        for (var i = 0; i < data.Length; i++) temp[i] = data[i].getData();
+        for (var i = 0; i < Data.Length; i++) temp[i] = Data[i].getData();
 
         return temp;
     }
 
     public static Matrix operator *(MatrixBase first, MatrixBase second)
     {
-        if (first.width != second.height)
+        if (first.Width != second.Height)
             throw new InvalidMatrixOperationException(
                 "invalid operation, matrices cannot be multiplied!");
 
-        var result = new Matrix(first.height, second.width);
+        var result = new Matrix(first.Height, second.Width);
 
-        for (var i = 0; i < first.height; i++)
-        for (var j = 0; j < first.width; j++)
-        for (var k = 0; k < first.width; k++)
+        for (var i = 0; i < first.Height; i++)
+        for (var j = 0; j < first.Width; j++)
+        for (var k = 0; k < first.Width; k++)
             result[i][j] += first[i][k] * second[k][j];
 
         return result;
     }
 
-    public void Pivot(int first, int second)
+    /// <summary>
+    ///     Swaps two rows.
+    /// </summary>
+    /// <param name="first">double[] first row</param>
+    /// <param name="second">double[] second row</param>
+    public void Swap(int first, int second)
     {
         (this[first], this[second]) = (this[second], this[first]);
-    }
-
-    public static double[] Multiply(double alpha, double[] val)
-    {
-        var temp = new double[val.Length];
-
-        for (var i = 0; i < val.Length; i++) temp[i] = alpha * val[i];
-
-        return temp;
-    }
-
-    public void Add(int index, double[] values)
-    {
-        for (var i = 0; i < this[index].Length; i++) this[index][i] += values[i];
     }
 }

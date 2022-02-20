@@ -6,36 +6,36 @@ public class Vector : MatrixBase
 {
     public Vector(double[] data) : base(new double[1][])
     {
-        this.data[0] = new MatrixRow(data);
-        width = 1;
-        height = data.Length;
+        Data[0] = new MatrixRow(data);
+        Width = 1;
+        Height = data.Length;
     }
 
     public Vector(int n) : base(1, n)
     {
-        height = n;
-        width = 1;
+        Height = n;
+        Width = 1;
     }
 
-    public Vector(Vector vector) : this(vector.getData()[0])
+    public Vector(Vector vector) : this(vector.GetData()[0])
     {
     }
 
     public new double this[int i]
     {
-        get => data[0][i];
-        set => data[0][i] = value;
+        get => Data[0][i];
+        set => Data[0][i] = value;
     }
 
     public int getHeight()
     {
-        return data.GetLength(0);
+        return Data.GetLength(0);
     }
 
     public static Vector Copy(Vector vector)
     {
-        var temp = new Vector(new double[vector.height]);
-        for (var j = 0; j < vector.height; j++) temp[j] = vector[j];
+        var temp = new Vector(new double[vector.Height]);
+        for (var j = 0; j < vector.Height; j++) temp[j] = vector[j];
 
         return temp;
     }
