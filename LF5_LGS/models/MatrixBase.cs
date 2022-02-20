@@ -5,29 +5,29 @@ namespace LF5_LGS.models;
 
 public abstract class MatrixBase
 {
-    public MatrixBase(int h, int w)
+    protected MatrixBase(int h, int w)
     {
         data = new MatrixRow[h];
         for (var i = 0; i < h; i++) data[i] = new MatrixRow(w);
     }
 
-    public MatrixBase(double[][] data)
+    protected MatrixBase(double[][] data)
     {
         this.data = new MatrixRow[data.Length];
         for (var i = 0; i < data.Length; i++) this.data[i] = new MatrixRow(data[i]);
     }
 
-    protected MatrixRow[] data { get; set; }
+    protected MatrixRow[] data { get; init; }
 
     /// <summary>
     ///     The Width of the matrix.
     /// </summary>
-    public int width { get; set; }
+    public int width { get; protected init; }
 
     /// <summary>
     ///     The height of the matrix.
     /// </summary>
-    public int height { get; set; }
+    public int height { get; protected init; }
 
     /// <summary>
     ///     Square bracket accessor for the data. Provides functionality of a array accessor [i].
