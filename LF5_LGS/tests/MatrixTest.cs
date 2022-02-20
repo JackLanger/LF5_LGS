@@ -64,4 +64,18 @@ public class MatrixTest
 
         Assert.AreEqual(expected.GetData(), (first * second).GetData());
     }
+
+    [Test]
+    public void GetRankTest()
+    {
+        Assert.AreEqual(2, new Matrix(new[] {new double[] {1, 2}, new double[] {2, 3}}).Rank);
+        Assert.AreEqual(1,
+            new Matrix(new[]
+            {
+                new double[] {1, 2, 3, 4},
+                new double[] {-3, -6, -9, -12},
+                new double[] {3, 6, 9, 12},
+                new double[] {2, 4, 6, 8}
+            }).Rank);
+    }
 }

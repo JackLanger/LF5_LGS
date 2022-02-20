@@ -29,6 +29,17 @@ public abstract class MatrixBase
     /// </summary>
     public int Height { get; protected init; }
 
+    public int Rank
+    {
+        get
+        {
+            var rank = Height;
+            for (var i = 1; i < Height; i++) rank = this[i] / this[i - 1] ? --rank : rank;
+
+            return rank;
+        }
+    }
+
     /// <summary>
     ///     Square bracket accessor for the data. Provides functionality of a array accessor [i].
     /// </summary>

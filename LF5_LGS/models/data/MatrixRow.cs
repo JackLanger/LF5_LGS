@@ -62,4 +62,20 @@ public class MatrixRow
     {
         return _data;
     }
+
+    /// <summary>
+    ///     Divides 2 rows and determines weather one is the multiple of the over
+    /// </summary>
+    /// <param name="first"></param>
+    /// <param name="second"></param>
+    /// <returns></returns>
+    public static bool operator /(MatrixRow first, MatrixRow second)
+    {
+        var alpha = new double[first.Length];
+
+        for (var i = 0; i < first.Length; i++)
+            alpha[i] = first[i] / second[i];
+        var dist = alpha.Distinct();
+        return dist.Count() < first.Length;
+    }
 }
