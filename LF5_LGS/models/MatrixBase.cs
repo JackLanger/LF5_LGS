@@ -45,4 +45,23 @@ public abstract class MatrixBase
 
         return result;
     }
+
+    public void Pivot(int first, int second)
+    {
+        (this[first], this[second]) = (this[second], this[first]);
+    }
+
+    public static double[] Multiply(double alpha, double[] val)
+    {
+        var temp = new double[val.Length];
+
+        for (var i = 0; i < val.Length; i++) temp[i] = alpha * val[i];
+
+        return temp;
+    }
+
+    public void Add(int index, double[] values)
+    {
+        for (var i = 0; i < this[index].Length; i++) this[index][i] += values[i];
+    }
 }

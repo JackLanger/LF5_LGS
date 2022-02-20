@@ -8,22 +8,25 @@ public class LgsTest
     [Test]
     public void TestLGS()
     {
-        var resultVector = new Vector(new double[] {1, 2, 3});
+        var resultVector = new Vector(new double[] {5, 6});
         var matrix = new Matrix(new[]
         {
-            new double[] {1, 2, 3},
-            new double[] {3, 2, 1},
-            new double[] {2, 3, 1}
+            new double[] {2, 4},
+            new double[] {2, 3}
         });
 
-        var res = LGS.SolveLgs(matrix, resultVector);
-        Assert.AreEqual(
-            new Vector(new[] {-3.833333333333333, 2.4166666666666665, -1.0833333333333333})
-                .getData(),
-            res.getData());
+        var actual = LGS.SolveLgs(matrix, resultVector);
+        var expected = new Vector(new[] {4.5, -1});
+        var invertedExpected = new Matrix(new[]
+        {
+            new[] {-1.5, 2},
+            new double[] {1, -1}
+        });
         var inverted = LGS.SolveLgs(matrix);
-        var uniRes = inverted * matrix;
-        Assert.AreEqual(new UnificationMatrix(matrix.height).getData(),
-            uniRes.getData());
+
+        Assert.AreEqual(expected.getData(), actual.getData());
+        Assert.AreEqual(invertedExpected.getData(), inverted.getData());
+        Assert.AreEqual(new UnificationMatrix(2).getData(), (inverted*matrix).getData());
+        Assert.AreEqual(new UnificationMatrix(2).getData(), (matrix*inverted).getData());
     }
 }

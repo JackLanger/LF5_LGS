@@ -40,6 +40,12 @@
     &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=628299d7_002Da0c4_002D4df6_002D88f2_002Da90907e223bb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #18" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=82c85253_002D1963_002D4a2c_002Db6f9_002D142086eb01de/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MatrixTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
@@ -47,6 +53,18 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=858958f0_002D6152_002D470a_002D9d39_002D874843037802/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8c5de572_002D38e8_002D4c17_002D954b_002D666c274e459e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #20" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9cf6a71f_002D3b4c_002D4e25_002D85d8_002D4ff271909377/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #19" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;
@@ -64,6 +82,18 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bc807faf_002D3aa8_002D47d3_002D960c_002Da263b4904274/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #11" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bf9134c1_002Ddbad_002D4393_002D8a94_002Dbb3d949463e0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #17" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ce209663_002D2d0d_002D466c_002D97bd_002D80531373d6ec/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MatrixTest #16" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.MatrixTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::8629F075-2948-4BB4-904D-BA41974AD818::net6.0::LF5_LGS.tests.LgsTest&lt;/TestId&gt;&#xD;

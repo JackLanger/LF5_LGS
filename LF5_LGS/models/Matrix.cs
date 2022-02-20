@@ -45,4 +45,16 @@ public class Matrix : MatrixBase
 
         return temp;
     }
+
+    public static Matrix Copy(MatrixBase matrix)
+    {
+        var temp = new double[matrix.height][];
+        for (var i = 0; i < matrix.height; i++)
+        {
+            temp[i] = new double[matrix.width];
+            for (var j = 0; j < matrix.width; j++) temp[i][j] = matrix[i][j];
+        }
+
+        return new Matrix(temp);
+    }
 }

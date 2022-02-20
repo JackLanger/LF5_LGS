@@ -9,11 +9,11 @@ public class LGS
     {
         MatrixBase res;
         if (result is not null)
-            res = new Vector(result);
+            res = Vector.Copy(result);
         else
             res = new UnificationMatrix(matrix.height);
 
-        var temp = CopyMatrixArray(matrix);
+        var temp = Matrix.Copy(matrix);
 
         IterateDown(result, res, temp);
         IterateUp(result, res, temp);
@@ -22,47 +22,34 @@ public class LGS
         return res;
     }
 
-    private static double[][] CopyMatrixArray(Matrix matrix)
+    private static void Normalize(Matrix temp, MatrixBase res)
     {
-        var temp = new double[matrix.height][];
-        for (var i = 0; i < matrix.height; i++)
-        {
-            temp[i] = new double[matrix.width];
-            for (var j = 0; j < matrix.width; j++) temp[i][j] = matrix[i][j];
-        }
-
-        return temp;
-    }
-
-    private static void Normalize(double[][] temp, MatrixBase res)
-    {
-        for (var i = 0; i < temp.Length; i++)
+        for (var i = 0; i < temp.height; i++)
         {
             var alpha = 1 / temp[i][i];
+            temp[i][i] *= alpha;
             if (res is not Vector)
-                for (var j = 0; j < res.width; j++)
-                    res[i][j] *= alpha;
+                res[i] = MatrixBase.Multiply(alpha, res[i]);
             else
                 res[0][i] *= alpha;
-
-            temp[i][i] /= temp[i][i];
         }
     }
 
-    private static void IterateDown(Vector? result, MatrixBase res, double[][] temp)
+    private static void IterateDown(Vector? result, MatrixBase res, Matrix temp)
     {
-        for (var i = 0; i < temp.Length - 1; i++)
+        for (var i = 0; i < temp.height - 1; i++)
         {
             if (temp[i + 1][i] == 0)
             {
-                pivot(ref temp[i], ref temp[i + 1]);
+                temp.Pivot(i, i + 1);
+                res.Pivot(i, i + 1);
                 if (temp[i + 1][i] == 0)
                     throw new UnsolvableMatrixException();
             }
 
 
             var topRow = temp[i];
-            for (var h = i; h < temp.Length - 1; h++)
+            for (var h = i; h < temp.height - 1; h++)
             {
                 var currentRow = temp[h + 1];
                 var rowAlpha = -currentRow[i] / topRow[i];
@@ -71,7 +58,7 @@ public class LGS
                 if (result is not null && h == i)
                     res[0][i + 1] += rowAlpha * res[0][i];
 
-                for (var j = i; j < temp.Length; j++)
+                for (var j = i; j < temp.height; j++)
                 {
                     // no solving vector was provided we use the unification vector
                     if (res is UnificationMatrix)
@@ -84,9 +71,9 @@ public class LGS
         }
     }
 
-    private static void IterateUp(Vector? result, MatrixBase res, double[][] temp)
+    private static void IterateUp(Vector? result, MatrixBase res, Matrix temp)
     {
-        for (var i = temp.Length - 1; i >= 0; i--)
+        for (var i = temp.height - 1; i >= 0; i--)
         {
             var topRow = temp[i];
             for (var h = i; h >= 1; h--)
@@ -97,25 +84,13 @@ public class LGS
                 // there was an solving vector provided, therefore it needs to be updated. 
                 if (result is not null && h == i)
                     res[0][i - 1] += rowAlpha * res[0][i];
+                else if (h == i)
+                    res.Add(h - 1, MatrixBase.Multiply(rowAlpha, res[h]));
 
                 for (var j = i; j >= 1; j--)
-                {
                     // no solving vector was provided we use the unification vector
-                    if (res is UnificationMatrix)
-                        res[h - 1][j] +=
-                            rowAlpha * res[i][j];
-
                     temp[h - 1][j] = rowAlpha * topRow[j] + currentRow[j];
-                }
             }
         }
-    }
-
-    private static void pivot(ref double[] firstRow, ref double[] secondRow)
-    {
-        var temp = new double[secondRow.Length];
-        secondRow.CopyTo(temp, 0);
-        secondRow = firstRow;
-        secondRow = temp;
     }
 }
