@@ -29,7 +29,8 @@ public class LGS
             var alpha = 1 / temp[i][i];
             temp[i][i] *= alpha;
             if (res is not Vector)
-                res[i] = MatrixBase.Multiply(alpha, res[i]);
+                res[i] *= alpha;
+            // res[i] = MatrixBase.Multiply(alpha, res[i]);
             else
                 res[0][i] *= alpha;
         }
@@ -85,7 +86,8 @@ public class LGS
                 if (result is not null && h == i)
                     res[0][i - 1] += rowAlpha * res[0][i];
                 else if (h == i)
-                    res.Add(h - 1, MatrixBase.Multiply(rowAlpha, res[h]));
+                    res[h - 1] += res[h] * rowAlpha;
+                // res.Add(h - 1, MatrixBase.Multiply(rowAlpha, res[h]));
 
                 for (var j = i; j >= 1; j--)
                     // no solving vector was provided we use the unification vector

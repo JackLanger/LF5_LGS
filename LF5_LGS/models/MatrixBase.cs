@@ -1,4 +1,5 @@
 using LF5_LGS.exceptions;
+using LF5_LGS.models.data;
 
 namespace LF5_LGS.models;
 
@@ -6,20 +7,21 @@ public abstract class MatrixBase
 {
     public MatrixBase(int h, int w)
     {
-        data = new double[h][];
-        for (var i = 0; i < h; i++) data[i] = new double[w];
+        data = new MatrixRow[h];
+        for (var i = 0; i < h; i++) data[i] = new MatrixRow(w);
     }
 
     public MatrixBase(double[][] data)
     {
-        this.data = data;
+        this.data = new MatrixRow[data.Length];
+        for (var i = 0; i < data.Length; i++) this.data[i] = new MatrixRow(data[i]);
     }
 
-    protected double[][] data { get; set; }
+    protected MatrixRow[] data { get; set; }
     public int width { get; set; }
     public int height { get; set; }
 
-    public double[] this[int i]
+    public MatrixRow this[int i]
     {
         get => data[i];
         set => data[i] = value;
@@ -27,7 +29,11 @@ public abstract class MatrixBase
 
     public double[][] getData()
     {
-        return data;
+        var temp = new double[data.Length][];
+
+        for (var i = 0; i < data.Length; i++) temp[i] = data[i].getData();
+
+        return temp;
     }
 
     public static Matrix operator *(MatrixBase first, MatrixBase second)

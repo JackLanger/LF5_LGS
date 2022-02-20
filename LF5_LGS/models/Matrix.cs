@@ -1,4 +1,5 @@
 using LF5_LGS.exceptions;
+using LF5_LGS.models.data;
 
 namespace LF5_LGS.models;
 
@@ -12,8 +13,8 @@ public class Matrix : MatrixBase
 
     public Matrix(int m, int n) : base(m, n)
     {
-        data = new double[m][];
-        for (var i = 0; i < m; i++) data[i] = new double[n];
+        data = new MatrixRow[m];
+        for (var i = 0; i < m; i++) data[i] = new MatrixRow(n);
         width = n;
         height = m;
     }

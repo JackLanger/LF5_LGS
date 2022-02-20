@@ -1,10 +1,12 @@
+using LF5_LGS.models.data;
+
 namespace LF5_LGS.models;
 
 public class Vector : MatrixBase
 {
     public Vector(double[] data) : base(new double[1][])
     {
-        this.data[0] = data;
+        this.data[0] = new MatrixRow(data);
         width = 1;
         height = data.Length;
     }
