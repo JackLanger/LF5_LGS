@@ -3,8 +3,18 @@ using LF5_LGS.models;
 
 namespace LF5_LGS;
 
+/// <summary>
+///     Class for solving Matrizes.
+/// </summary>
 public static class Lgs
 {
+    /// <summary>
+    ///     Solves a matrix with its respective solving vector, if the solving vector is not provided this
+    ///     function returns the inverse of the matrix
+    /// </summary>
+    /// <param name="matrix"> the matrix to solve</param>
+    /// <param name="result"> the result vector</param>
+    /// <returns> a new vector containing the result or the inverse matrix if no vector was provided</returns>
     public static MatrixBase SolveLgs(Matrix matrix, Vector? result = null)
     {
         MatrixBase res;

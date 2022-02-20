@@ -18,15 +18,31 @@ public abstract class MatrixBase
     }
 
     protected MatrixRow[] data { get; set; }
+
+    /// <summary>
+    ///     The Width of the matrix.
+    /// </summary>
     public int width { get; set; }
+
+    /// <summary>
+    ///     The height of the matrix.
+    /// </summary>
     public int height { get; set; }
 
+    /// <summary>
+    ///     Square bracket accessor for the data. Provides functionality of a array accessor [i].
+    /// </summary>
+    /// <param name="i">the index</param>
     public MatrixRow this[int i]
     {
         get => data[i];
         set => data[i] = value;
     }
 
+    /// <summary>
+    ///     Returns teh Arrays data.
+    /// </summary>
+    /// <returns>array data</returns>
     public double[][] getData()
     {
         var temp = new double[data.Length][];
